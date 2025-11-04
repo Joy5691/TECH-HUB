@@ -36,57 +36,65 @@ TECH HUB is a modern, full-featured e-commerce web application built for selling
 
 ## 📁 Project Structure
 
-TECH_HUB/
-├── index.html
-├── about.html
-├── contact.html
-├── blog.html
-├── README.md
-├── css/
-│   ├── theme.css
-│   ├── style.css
-│   ├── animations.css
-│   └── responsive.css
-├── js/
-│   ├── main.js
-│   ├── animations.js
-│   ├── cart.js
-│   ├── products.js
-│   ├── search.js
-│   └── validation.js
-├── firebase/
-│   ├── firebase-config.js
-│   ├── auth.js
-│   ├── database.js
-│   └── storage.js
-├── pages/
-│   ├── products/
-│   │   ├── listing.html
-│   │   ├── detail.html
-│   │   ├── comparison.html
-│   │   └── categories.html
-│   ├── user/
-│   │   ├── login.html
-│   │   ├── register.html
-│   │   ├── dashboard.html
-│   │   └── profile.html
-│   ├── admin/
-│   │   ├── dashboard.html
-│   │   ├── products.html
-│   │   ├── orders.html
-│   │   ├── users.html
-│   │   ├── categories.html
-│   │   └── analytics.html
-│   ├── cart.html
-│   ├── checkout.html
-│   ├── orders.html
-│   └── wishlist.html
-└── images/
-    ├── products/
-    ├── banners/
-    ├── categories/
-    ├── logos/
-    └── icons/
+📁 TECH_HUB/
+├── 📄 index.html
+├── 📄 about.html
+├── 📄 contact.html
+├── 📄 blog.html
+├── 📄 README.md
+│
+├── 📁 css/
+│   ├── 📄 theme.css
+│   ├── 📄 style.css
+│   ├── 📄 animations.css
+│   └── 📄 responsive.css
+│
+├── 📁 js/
+│   ├── 📄 main.js
+│   ├── 📄 animations.js
+│   ├── 📄 cart.js
+│   ├── 📄 products.js
+│   ├── 📄 search.js
+│   └── 📄 validation.js
+│
+├── 📁 firebase/
+│   ├── 📄 firebase-config.js
+│   ├── 📄 auth.js
+│   ├── 📄 database.js
+│   └── 📄 storage.js
+│
+├── 📁 pages/
+│   ├── 📁 products/
+│   │   ├── 📄 listing.html
+│   │   ├── 📄 detail.html
+│   │   ├── 📄 comparison.html
+│   │   └── 📄 categories.html
+│   │
+│   ├── 📁 user/
+│   │   ├── 📄 login.html
+│   │   ├── 📄 register.html
+│   │   ├── 📄 dashboard.html
+│   │   └── 📄 profile.html
+│   │
+│   ├── 📁 admin/
+│   │   ├── 📄 dashboard.html
+│   │   ├── 📄 products.html
+│   │   ├── 📄 orders.html
+│   │   ├── 📄 users.html
+│   │   ├── 📄 categories.html
+│   │   └── 📄 analytics.html
+│   │
+│   ├── 📄 cart.html
+│   ├── 📄 checkout.html
+│   ├── 📄 orders.html
+│   └── 📄 wishlist.html
+│
+└── 📁 images/
+    ├── 📁 products/
+    ├── 📁 banners/
+    ├── 📁 categories/
+    ├── 📁 logos/
+    └── 📁 icons/
 
 ## 🛠️ Technologies Used
 
@@ -261,4 +269,5 @@ firebase deploy
 
 Made with ❤️ by TECH HUB Team | © 2025 All Rights Reserved
 Star ⭐ this repository if you find it helpful!
+
 
