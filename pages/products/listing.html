@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - TECH HUB</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-top">
+            <div class="container">
+                <div>
+                    <i class="fas fa-phone"></i> +880 1234-567890 | 
+                    <i class="fas fa-envelope"></i> support@techhub.com
+                </div>
+                <div>
+                    <a href="#">Track Order</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-main">
+            <div class="container">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-microchip"></i>
+                    TECH<span>HUB</span>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon" onclick="window.location.href='../user/dashboard.html'">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="nav-icon" onclick="window.location.href='comparison.html'">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="badge" id="compareCount">0</span>
+                    </div>
+                    <div class="nav-icon" onclick="window.location.href='../user/cart.html'">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="container">
+                <a href="../../index.html" class="menu-item">Home</a>
+                <a href="categories.html?cat=laptop" class="menu-item">Laptops</a>
+                <a href="categories.html?cat=desktop" class="menu-item">Desktops</a>
+                <a href="categories.html?cat=phone" class="menu-item">Phones</a>
+                <a href="listing.html" class="menu-item active">All Products</a>
+                <a href="../../contact.html" class="menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="section" style="padding: 1rem 0; background: var(--off-white);">
+        <div class="container">
+            <div style="color: var(--gray); font-size: 0.9rem;">
+                <a href="../../index.html" style="color: var(--gray); text-decoration: none;">Home</a>
+                <i class="fas fa-chevron-right" style="font-size: 0.75rem; margin: 0 0.5rem;"></i>
+                <span style="color: var(--primary-red);">All Products</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                <!-- Filters Sidebar -->
+                <div>
+                    <div class="card" style="position: sticky; top: 100px;">
+                        <div class="card-body">
+                            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">
+                                <i class="fas fa-filter"></i> Filters
+                            </h3>
+
+                            <!-- Category Filter -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Category</h4>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="all" checked> All Products
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="laptop"> Laptops
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="desktop"> Desktops
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="phone"> Phones
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="gaming"> Gaming
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="category" value="accessories"> Accessories
+                                </label>
+                            </div>
+
+                            <!-- Price Filter -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Price Range</h4>
+                                <input type="range" min="0" max="500000" step="5000" value="250000" style="width: 100%; margin-bottom: 0.5rem;" id="priceRange">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.875rem; color: var(--gray);">
+                                    <span>0৳</span>
+                                    <span id="priceValue">250,000৳</span>
+                                </div>
+                            </div>
+
+                            <!-- Availability -->
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="font-size: 1rem; margin-bottom: 0.75rem;">Availability</h4>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="availability" value="instock" checked> In Stock
+                                </label>
+                                <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" name="availability" value="preorder"> Pre-Order
+                                </label>
+                            </div>
+
+                            <button class="btn btn-red" style="width: 100%;" onclick="applyFilters()">
+                                <i class="fas fa-check"></i> Apply Filters
+                            </button>
+                            
+                            <button class="btn btn-outline" style="width: 100%; margin-top: 0.5rem;" onclick="resetFilters()">
+                                <i class="fas fa-undo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div>
+                    <!-- Toolbar -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <span style="color: var(--gray);">Showing <strong id="productCount">12</strong> products</span>
+                        </div>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <label style="color: var(--gray);">Sort by:</label>
+                            <select class="form-control" style="width: auto;" onchange="sortProducts(this.value)">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="name">Name: A to Z</option>
+                                <option value="discount">Discount</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div class="grid grid-auto" id="productsContainer">
+                        <!-- Products will be loaded here dynamically -->
+                        <div class="spinner" style="grid-column: 1/-1; margin: 3rem auto;"></div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 3rem;">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="btn btn-red">1</button>
+                        <button class="btn btn-outline">2</button>
+                        <button class="btn btn-outline">3</button>
+                        <button class="btn btn-outline">4</button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-microchip"></i> TECH HUB</h3>
+                    <p>Your trusted partner for all tech needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../about.html">About Us</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 1rem; font-size: 1.5rem; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TECH HUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/products.js"></script>
+    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        // Price range slider
+        document.getElementById('priceRange').addEventListener('input', function() {
+            document.getElementById('priceValue').textContent = parseInt(this.value).toLocaleString() + '৳';
+        });
+
+        // Load products
+        function loadProducts() {
+            const container = document.getElementById('productsContainer');
+            const products = productManager.getSampleProducts();
+            
+            container.innerHTML = products.map(product => `
+                <div class="card hover-lift">
+                    ${product.discount > 0 ? `<div class="discount-badge">-${product.discount}%</div>` : ''}
+                    <div class="card-img" style="display: flex; align-items: center; justify-content: center; font-size: 5rem;">
+                        ${product.image}
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">${product.name}</h3>
+                        <div style="margin: 1rem 0;">
+                            <span class="price">${product.price.toLocaleString()}৳</span>
+                            ${product.oldPrice ? `<span class="price-old">${product.oldPrice.toLocaleString()}৳</span>` : ''}
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-red" style="flex: 1;" onclick="addToCart(${product.id}, '${product.name}', ${product.price})">
+                                <i class="fas fa-cart-plus"></i> Add
+                            </button>
+                            <button class="btn btn-outline" onclick="window.location.href='detail.html?id=${product.id}'">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('productCount').textContent = products.length;
+        }
+
+        function applyFilters() {
+            console.log('Filters applied');
+            loadProducts();
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.getElementById('priceRange').value = 250000;
+            document.getElementById('priceValue').textContent = '250,000৳';
+            loadProducts();
+        }
+
+        function sortProducts(sortBy) {
+            console.log('Sorting by:', sortBy);
+            // Implement sorting logic
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            console.log('Searching for:', query);
+        }
+
+        // Load products on page load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>
