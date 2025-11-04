@@ -36,8 +36,61 @@ TECH HUB is a modern, full-featured e-commerce web application built for selling
 
 ## 📁 Project Structure
 
-TECH_HUB/ ├── index.html ├── about.html ├── contact.html ├── blog.html ├── README.md ├── css/ │ ├── theme.css │ ├── style.css │ ├── animations.css │ └── responsive.css ├── js/ │ ├── main.js │ ├── animations.js │ ├── cart.js │ ├── products.js │ ├── search.js │ └── validation.js ├── firebase/ │ ├── firebase-config.js │ ├── auth.js │ ├── database.js │ └── storage.js ├── pages/ │ ├── products/ │ │ ├── listing.html │ │ ├── detail.html │ │ ├── comparison.html │ │ └── categories.html │ ├── user/ │ │ ├── login.html │ │ ├── register.html │ │ ├── dashboard.html │ │ ├── profile.html │ │ ├── cart.html │ │ ├── checkout.html │ │ ├── orders.html │ │ └── wishlist.html │ └── admin/ │ ├── dashboard.html │ ├── products.html │ ├── orders.html │ ├── users.html │ ├── categories.html │ └── analytics.html └── images/ ├── products/ ├── banners/ ├── categories/ ├── logos/ └── icons/
+## Project Structure
 
+```text
+📁 TECH_HUB/
+├── 📄 index.html
+├── 📄 about.html
+├── 📄 contact.html
+├── 📄 blog.html
+├── 📄 README.md
+├── 📁 css/
+│   ├── 📄 theme.css
+│   ├── 📄 style.css
+│   ├── 📄 animations.css
+│   └── 📄 responsive.css
+├── 📁 js/
+│   ├── 📄 main.js
+│   ├── 📄 animations.js
+│   ├── 📄 cart.js
+│   ├── 📄 products.js
+│   ├── 📄 search.js
+│   └── 📄 validation.js
+├── 📁 firebase/
+│   ├── 📄 firebase-config.js
+│   ├── 📄 auth.js
+│   ├── 📄 database.js
+│   └── 📄 storage.js
+├── 📁 pages/
+│   ├── 📁 products/
+│   │   ├── 📄 listing.html
+│   │   ├── 📄 detail.html
+│   │   ├── 📄 comparison.html
+│   │   └── 📄 categories.html
+│   ├── 📁 user/
+│   │   ├── 📄 login.html
+│   │   ├── 📄 register.html
+│   │   ├── 📄 dashboard.html
+│   │   └── 📄 profile.html
+│   ├── 📁 admin/
+│   │   ├── 📄 dashboard.html
+│   │   ├── 📄 products.html
+│   │   ├── 📄 orders.html
+│   │   ├── 📄 users.html
+│   │   ├── 📄 categories.html
+│   │   └── 📄 analytics.html
+│   ├── 📄 cart.html
+│   ├── 📄 checkout.html
+│   ├── 📄 orders.html
+│   └── 📄 wishlist.html
+└── 📁 images/
+    ├── 📁 products/
+    ├── 📁 banners/
+    ├── 📁 categories/
+    ├── 📁 logos/
+    └── 📁 icons/
+```
 ## 🛠️ Technologies Used
 
 - Frontend: HTML5, CSS3, JavaScript (ES6+)
@@ -82,8 +135,21 @@ const firebaseConfig = { apiKey: "YOUR_API_KEY", authDomain: "YOUR_AUTH_DOMAIN",
 ## 🎨 Theme Customization
 
 Edit css/theme.css to customize colors:
-:root { --primary-red: #E31837; --primary-red-dark: #C41230; --white: #FFFFFF; --black: #1A1A1A; --off-white: #F8F9FA; --light-gray: #E9ECEF; --gray: #6C757D; --success: #28A745; --danger: #DC3545; --warning: #FFC107; --info: #17A2B8; }
-
+```text
+:root {
+  --primary-red: #E31837;
+  --primary-red-dark: #C41230;
+  --white: #FFFFFF;
+  --black: #1A1A1A;
+  --off-white: #F8F9FA;
+  --light-gray: #E9ECEF;
+  --gray: #6C757D;
+  --success: #28A745;
+  --danger: #DC3545;
+  --warning: #FFC107;
+  --info: #17A2B8;
+}
+```
 ## 📦 Firebase Setup
 
 ### Firestore Collections
@@ -98,7 +164,24 @@ Create collections with these fields:
 
 ### Security Rules
 
-rules_version = '2'; service cloud.firestore { match /databases/{database}/documents { match /products/{productId} { allow read: if true; allow write: if request.auth != null && request.auth.token.admin == true; } match /orders/{orderId} { allow read: if request.auth != null && request.auth.uid == resource.data.userId; allow create: if request.auth != null; } match /users/{userId} { allow read, write: if request.auth != null && request.auth.uid == userId; } } }
+```text
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    match /orders/{orderId} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null;
+    }
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
 
 ## 🔧 Configuration
 
@@ -211,3 +294,4 @@ firebase deploy
 
 Made with ❤️ by TECH HUB Team | © 2025 All Rights Reserved
 Star ⭐ this repository if you find it helpful!
+
