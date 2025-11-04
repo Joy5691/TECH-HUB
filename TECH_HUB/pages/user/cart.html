@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - TECH HUB</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-top">
+            <div class="container">
+                <div>
+                    <i class="fas fa-phone"></i> +880 1234-567890 | 
+                    <i class="fas fa-envelope"></i> support@techhub.com
+                </div>
+                <div>
+                    <a href="#">Track Order</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-main">
+            <div class="container">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-microchip"></i>
+                    TECH<span>HUB</span>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon" onclick="window.location.href='dashboard.html'">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="nav-icon" onclick="window.location.href='../products/comparison.html'">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="badge" id="compareCount">0</span>
+                    </div>
+                    <div class="nav-icon active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="container">
+                <a href="../../index.html" class="menu-item">Home</a>
+                <a href="../products/categories.html?cat=laptop" class="menu-item">Laptops</a>
+                <a href="../products/categories.html?cat=desktop" class="menu-item">Desktops</a>
+                <a href="../products/listing.html" class="menu-item">All Products</a>
+                <a href="../../contact.html" class="menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="section" style="padding: 1rem 0; background: var(--off-white);">
+        <div class="container">
+            <div style="color: var(--gray); font-size: 0.9rem;">
+                <a href="../../index.html" style="color: var(--gray); text-decoration: none;">Home</a>
+                <i class="fas fa-chevron-right" style="font-size: 0.75rem; margin: 0 0.5rem;"></i>
+                <span style="color: var(--primary-red);">Shopping Cart</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="section">
+        <div class="container">
+            <h1 style="font-size: 2rem; margin-bottom: 2rem;">
+                <i class="fas fa-shopping-cart"></i> Shopping Cart
+            </h1>
+
+            <div class="grid grid-3" style="gap: 2rem; align-items: start;">
+                <!-- Cart Items (2 columns) -->
+                <div style="grid-column: span 2;">
+                    <div id="cartItems" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <!-- Cart items will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Order Summary (1 column) -->
+                <div class="card" style="position: sticky; top: 100px;">
+                    <div class="card-body">
+                        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Order Summary</h2>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span style="color: var(--gray);">Subtotal:</span>
+                            <span style="font-weight: 600;"><span id="cartSubtotal">0</span>৳</span>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span style="color: var(--gray);">Shipping:</span>
+                            <span style="font-weight: 600; color: var(--success);">FREE</span>
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.75rem;">
+                            <span style="color: var(--gray);">Tax (VAT):</span>
+                            <span style="font-weight: 600;">0৳</span>
+                        </div>
+                        
+                        <div style="border-top: 2px solid var(--light-gray); margin: 1rem 0;"></div>
+                        
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem;">
+                            <span style="font-size: 1.25rem; font-weight: 700;">Total:</span>
+                            <span style="font-size: 1.5rem; font-weight: 700; color: var(--primary-red);">
+                                <span id="cartTotal">0</span>৳
+                            </span>
+                        </div>
+                        
+                        <button class="btn btn-red" style="width: 100%; margin-bottom: 0.75rem;" onclick="proceedToCheckout()">
+                            <i class="fas fa-lock"></i> Proceed to Checkout
+                        </button>
+                        
+                        <a href="../products/listing.html" class="btn btn-outline" style="width: 100%; text-align: center; display: block;">
+                            <i class="fas fa-shopping-bag"></i> Continue Shopping
+                        </a>
+                        
+                        <!-- Promo Code -->
+                        <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--light-gray);">
+                            <label class="form-label">Have a promo code?</label>
+                            <div style="display: flex; gap: 0.5rem;">
+                                <input type="text" class="form-control" placeholder="Enter code" id="promoCode">
+                                <button class="btn btn-outline" onclick="applyPromoCode()">Apply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Products -->
+    <section class="section" style="background: var(--off-white);">
+        <div class="container">
+            <h2 style="font-size: 1.75rem; margin-bottom: 2rem;">You May Also Like</h2>
+            <div class="grid grid-4">
+                <!-- Sample recommended products -->
+                <div class="card hover-lift">
+                    <div class="card-img" style="display: flex; align-items: center; justify-content: center; font-size: 4rem;">💻</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Wireless Keyboard</h3>
+                        <span class="price">2,500৳</span>
+                        <button class="btn btn-red" style="width: 100%; margin-top: 0.5rem;" onclick="addToCart(201, 'Wireless Keyboard', 2500)">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card hover-lift">
+                    <div class="card-img" style="display: flex; align-items: center; justify-content: center; font-size: 4rem;">🖱️</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Gaming Mouse</h3>
+                        <span class="price">1,800৳</span>
+                        <button class="btn btn-red" style="width: 100%; margin-top: 0.5rem;" onclick="addToCart(202, 'Gaming Mouse', 1800)">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card hover-lift">
+                    <div class="card-img" style="display: flex; align-items: center; justify-content: center; font-size: 4rem;">🎧</div>
+                    <div class="card-body">
+                        <h3 class="card-title">USB Headset</h3>
+                        <span class="price">3,200৳</span>
+                        <button class="btn btn-red" style="width: 100%; margin-top: 0.5rem;" onclick="addToCart(203, 'USB Headset', 3200)">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="card hover-lift">
+                    <div class="card-img" style="display: flex; align-items: center; justify-content: center; font-size: 4rem;">📱</div>
+                    <div class="card-body">
+                        <h3 class="card-title">Phone Stand</h3>
+                        <span class="price">450৳</span>
+                        <button class="btn btn-red" style="width: 100%; margin-top: 0.5rem;" onclick="addToCart(204, 'Phone Stand', 450)">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-microchip"></i> TECH HUB</h3>
+                    <p>Your trusted partner for all tech needs.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../about.html">About Us</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <div style="display: flex; gap: 1rem; font-size: 1.5rem; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 TECH HUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
+    <script>
+        // Load cart on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            cart.renderCartItems();
+        });
+
+        function proceedToCheckout() {
+            if (cart.cart.length === 0) {
+                alert('⚠️ Your cart is empty!');
+                return;
+            }
+            window.location.href = 'checkout.html';
+        }
+
+        function applyPromoCode() {
+            const code = document.getElementById('promoCode').value.trim();
+            if (!code) {
+                alert('⚠️ Please enter a promo code');
+                return;
+            }
+            
+            // Demo promo codes
+            const promoCodes = {
+                'TECH10': 10,
+                'SAVE20': 20,
+                'WELCOME': 15
+            };
+            
+            if (promoCodes[code.toUpperCase()]) {
+                const discount = promoCodes[code.toUpperCase()];
+                alert(`✅ Promo code applied! You saved ${discount}%`);
+            } else {
+                alert('❌ Invalid promo code');
+            }
+        }
+
+        function performSearch() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                window.location.href = `../products/listing.html?search=${encodeURIComponent(query)}`;
+            }
+        }
+    </script>
+</body>
+</html>

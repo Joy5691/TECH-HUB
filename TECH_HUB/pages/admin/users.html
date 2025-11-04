@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - TECH HUB Admin</title>
+    
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-main" style="background: var(--black);">
+            <div class="container">
+                <a href="../../index.html" class="logo" style="color: white;">
+                    <i class="fas fa-microchip"></i>
+                    TECH<span style="color: var(--primary-red);">HUB</span>
+                    <span style="background: var(--primary-red); padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.75rem; margin-left: 0.5rem;">ADMIN</span>
+                </a>
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <a href="../../index.html" style="color: white; text-decoration: none;"><i class="fas fa-home"></i> View Site</a>
+                    <div style="color: white;"><i class="fas fa-user-shield"></i> Admin User</div>
+                    <a href="#" onclick="logout()" style="color: var(--primary-red); text-decoration: none;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                <div>
+                    <div class="card" style="position: sticky; top: 20px;">
+                        <div class="card-body" style="padding: 0;">
+                            <nav style="padding: 1rem 0;">
+                                <a href="dashboard.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-tachometer-alt" style="margin-right: 0.5rem;"></i> Dashboard
+                                </a>
+                                <a href="products.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-box" style="margin-right: 0.5rem;"></i> Products
+                                </a>
+                                <a href="categories.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-tags" style="margin-right: 0.5rem;"></i> Categories
+                                </a>
+                                <a href="orders.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Orders
+                                </a>
+                                <a href="users.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid var(--primary-red); background: var(--off-white); font-weight: 600;">
+                                    <i class="fas fa-users" style="margin-right: 0.5rem;"></i> Users
+                                </a>
+                                <a href="analytics.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i> Analytics
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h1 style="font-size: 2rem; margin-bottom: 2rem;"><i class="fas fa-users"></i> User Management</h1>
+
+                    <div class="grid grid-4" style="margin-bottom: 2rem;">
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--primary-red); margin-bottom: 0.5rem;"><i class="fas fa-users"></i></div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">12,567</h3>
+                                <p style="color: var(--gray);">Total Users</p>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--success); margin-bottom: 0.5rem;"><i class="fas fa-user-check"></i></div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">11,892</h3>
+                                <p style="color: var(--gray);">Active Users</p>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--warning); margin-bottom: 0.5rem;"><i class="fas fa-user-plus"></i></div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">234</h3>
+                                <p style="color: var(--gray);">New This Month</p>
+                            </div>
+                        </div>
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--info); margin-bottom: 0.5rem;"><i class="fas fa-user-shield"></i></div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">5</h3>
+                                <p style="color: var(--gray);">Admins</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <div class="card-body">
+                            <div style="display: grid; grid-template-columns: 1fr 200px 200px; gap: 1rem;">
+                                <input type="text" class="form-control" placeholder="Search users by name, email...">
+                                <select class="form-control">
+                                    <option>All Roles</option>
+                                    <option>Customer</option>
+                                    <option>Admin</option>
+                                </select>
+                                <select class="form-control">
+                                    <option>All Status</option>
+                                    <option>Active</option>
+                                    <option>Inactive</option>
+                                    <option>Banned</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: var(--off-white); text-align: left;">
+                                        <th style="padding: 1rem; font-weight: 600;">User</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Email</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Role</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Joined</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Orders</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Status</th>
+                                        <th style="padding: 1rem; font-weight: 600; text-align: center;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="width: 40px; height: 40px; background: var(--primary-red); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">JD</div>
+                                                <div>
+                                                    <h4 style="font-weight: 600; margin-bottom: 0.25rem;">John Doe</h4>
+                                                    <p style="color: var(--gray); font-size: 0.875rem;">ID: #USR-001</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">john.doe@example.com</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--info); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Customer</span>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Jan 15, 2024</td>
+                                        <td style="padding: 1rem; font-weight: 600;">8</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Active</span>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem; margin-right: 0.5rem;" onclick="editUser(1)"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline" style="padding: 0.5rem; color: var(--danger); border-color: var(--danger);" onclick="deleteUser(1)"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="width: 40px; height: 40px; background: var(--success); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">JS</div>
+                                                <div>
+                                                    <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Jane Smith</h4>
+                                                    <p style="color: var(--gray); font-size: 0.875rem;">ID: #USR-002</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">jane.smith@example.com</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--primary-red); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Admin</span>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Dec 5, 2023</td>
+                                        <td style="padding: 1rem; font-weight: 600;">0</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Active</span>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem; margin-right: 0.5rem;" onclick="editUser(2)"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline" style="padding: 0.5rem; color: var(--danger); border-color: var(--danger);" onclick="deleteUser(2)"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="width: 40px; height: 40px; background: var(--warning); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">MJ</div>
+                                                <div>
+                                                    <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Mike Johnson</h4>
+                                                    <p style="color: var(--gray); font-size: 0.875rem;">ID: #USR-003</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">mike.j@example.com</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--info); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Customer</span>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Mar 20, 2024</td>
+                                        <td style="padding: 1rem; font-weight: 600;">3</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Active</span>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem; margin-right: 0.5rem;" onclick="editUser(3)"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline" style="padding: 0.5rem; color: var(--danger); border-color: var(--danger);" onclick="deleteUser(3)"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 1rem;">
+                                            <div style="display: flex; align-items: center; gap: 1rem;">
+                                                <div style="width: 40px; height: 40px; background: var(--gray); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">SW</div>
+                                                <div>
+                                                    <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Sarah Wilson</h4>
+                                                    <p style="color: var(--gray); font-size: 0.875rem;">ID: #USR-004</p>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">sarah.w@example.com</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--info); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Customer</span>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 1, 2025</td>
+                                        <td style="padding: 1rem; font-weight: 600;">12</td>
+                                        <td style="padding: 1rem;">
+                                            <span style="background: var(--danger); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">Inactive</span>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem; margin-right: 0.5rem;" onclick="editUser(4)"><i class="fas fa-edit"></i></button>
+                                            <button class="btn btn-outline" style="padding: 0.5rem; color: var(--danger); border-color: var(--danger);" onclick="deleteUser(4)"><i class="fas fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                        <div style="color: var(--gray);">Showing 1-4 of 12,567 users</div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-outline"><i class="fas fa-chevron-left"></i></button>
+                            <button class="btn btn-red">1</button>
+                            <button class="btn btn-outline">2</button>
+                            <button class="btn btn-outline">3</button>
+                            <button class="btn btn-outline">...</button>
+                            <button class="btn btn-outline">3142</button>
+                            <button class="btn btn-outline"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="background: var(--black);">
+        <div class="container">
+            <div class="footer-bottom text-center">
+                <p style="color: white;">&copy; 2025 TECH HUB Admin Panel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('admin');
+                window.location.href = '../user/login.html';
+            }
+        }
+        function editUser(id) { alert('Edit User ID: ' + id); }
+        function deleteUser(id) {
+            if (confirm('Delete this user?')) {
+                alert('User ' + id + ' deleted!');
+            }
+        }
+    </script>
+</body>
+</html>
