@@ -96,7 +96,7 @@ TECH HUB is a modern, full-featured e-commerce web application built for selling
     ├── 📁 categories/
     ├── 📁 logos/
     └── 📁 icons/
-
+```
 ## 🛠️ Technologies Used
 
 - Frontend: HTML5, CSS3, JavaScript (ES6+)
@@ -270,6 +270,7 @@ firebase deploy
 
 Made with ❤️ by TECH HUB Team | © 2025 All Rights Reserved
 Star ⭐ this repository if you find it helpful!
+
 
 
 
