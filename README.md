@@ -36,6 +36,7 @@ TECH HUB is a modern, full-featured e-commerce web application built for selling
 
 ## 📁 Project Structure
 
+```text
 📁 TECH_HUB/
 ├── 📄 index.html
 ├── 📄 about.html
@@ -269,5 +270,6 @@ firebase deploy
 
 Made with ❤️ by TECH HUB Team | © 2025 All Rights Reserved
 Star ⭐ this repository if you find it helpful!
+
 
 
