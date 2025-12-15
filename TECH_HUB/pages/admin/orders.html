@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - TECH HUB Admin</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Admin Navigation -->
+    <nav class="navbar">
+<div class="navbar-menu">
+  <div class="container">
+    <a href="../../index.html" class="menu-item">Home</a>
+    <a href="dashboard.html" class="menu-item">Dashboard</a>
+    <a href="products.html" class="menu-item">Products</a>
+    <a href="orders.html" class="menu-item">Orders</a>
+    <a href="users.html" class="menu-item">Users</a>
+    <a href="categories.html" class="menu-item">Categories</a>
+  </div>
+</div>
+        <div class="navbar-main" style="background: var(--black);">
+            <div class="container">
+<a href="../../index.html" class="logo">
+  <i class="fas fa-microchip"></i> TECH<span>HUB</span>
+</a>
+                
+                <div style="display: flex; gap: 2rem; align-items: center;">
+                    <a href="../../index.html" style="color: white; text-decoration: none;">
+                        <i class="fas fa-home"></i> View Site
+                    </a>
+                    <div style="color: white;">
+                        <i class="fas fa-user-shield"></i> Admin User
+                    </div>
+                    <a href="#" onclick="logout()" style="color: var(--primary-red); text-decoration: none;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Content -->
+    <section class="section">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                <!-- Admin Sidebar -->
+                <div>
+                    <div class="card" style="position: sticky; top: 20px;">
+                        <div class="card-body" style="padding: 0;">
+                            <nav style="padding: 1rem 0;">
+                                <a href="dashboard.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-tachometer-alt" style="margin-right: 0.5rem;"></i> Dashboard
+                                </a>
+                                <a href="products.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-box" style="margin-right: 0.5rem;"></i> Products
+                                </a>
+                                <a href="categories.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-tags" style="margin-right: 0.5rem;"></i> Categories
+                                </a>
+                                <a href="orders.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid var(--primary-red); background: var(--off-white); font-weight: 600;">
+                                    <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> Orders
+                                </a>
+                                <a href="users.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-users" style="margin-right: 0.5rem;"></i> Users
+                                </a>
+                                <a href="analytics.html" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
+                                    <i class="fas fa-chart-line" style="margin-right: 0.5rem;"></i> Analytics
+                                </a>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div>
+                    <h1 style="font-size: 2rem; margin-bottom: 2rem;">
+                        <i class="fas fa-shopping-bag"></i> Order Management
+                    </h1>
+
+                    <!-- Order Stats -->
+                    <div class="grid grid-4" style="margin-bottom: 2rem;">
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--primary-red); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">24</h3>
+                                <p style="color: var(--gray);">Pending Orders</p>
+                            </div>
+                        </div>
+
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--warning); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">15</h3>
+                                <p style="color: var(--gray);">Processing</p>
+                            </div>
+                        </div>
+
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--info); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-shipping-fast"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">8</h3>
+                                <p style="color: var(--gray);">Shipped</p>
+                            </div>
+                        </div>
+
+                        <div class="card hover-lift">
+                            <div class="card-body text-center">
+                                <div style="font-size: 3rem; color: var(--success); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; font-weight: 700;">1,187</h3>
+                                <p style="color: var(--gray);">Completed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem; overflow-x: auto;">
+                        <button class="btn btn-red">All Orders (1,234)</button>
+                        <button class="btn btn-outline">Pending (24)</button>
+                        <button class="btn btn-outline">Processing (15)</button>
+                        <button class="btn btn-outline">Shipped (8)</button>
+                        <button class="btn btn-outline">Delivered (1,187)</button>
+                        <button class="btn btn-outline">Cancelled</button>
+                    </div>
+
+                    <!-- Orders Table -->
+                    <div class="card">
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse;">
+                                <thead>
+                                    <tr style="background: var(--off-white); text-align: left;">
+                                        <th style="padding: 1rem; font-weight: 600;">Order ID</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Customer</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Date</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Items</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Total</th>
+                                        <th style="padding: 1rem; font-weight: 600;">Status</th>
+                                        <th style="padding: 1rem; font-weight: 600; text-align: center;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Order 1 -->
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <span style="font-weight: 600; color: var(--primary-red);">#ORD-1234</span>
+                                        </td>
+                                        <td style="padding: 1rem;">
+                                            <div>
+                                                <h4 style="font-weight: 600; margin-bottom: 0.25rem;">John Doe</h4>
+                                                <p style="color: var(--gray); font-size: 0.875rem;">john@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 3, 2025</td>
+                                        <td style="padding: 1rem; color: var(--gray);">2 items</td>
+                                        <td style="padding: 1rem; font-weight: 600;">57,999৳</td>
+                                        <td style="padding: 1rem;">
+                                            <select class="form-control" style="width: auto; padding: 0.5rem;" onchange="updateOrderStatus(1234, this.value)">
+                                                <option value="pending">Pending</option>
+                                                <option value="processing">Processing</option>
+                                                <option value="shipped">Shipped</option>
+                                                <option value="delivered" selected>Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="viewOrder(1234)">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Order 2 -->
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <span style="font-weight: 600; color: var(--primary-red);">#ORD-1235</span>
+                                        </td>
+                                        <td style="padding: 1rem;">
+                                            <div>
+                                                <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Jane Smith</h4>
+                                                <p style="color: var(--gray); font-size: 0.875rem;">jane@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 4, 2025</td>
+                                        <td style="padding: 1rem; color: var(--gray);">1 item</td>
+                                        <td style="padding: 1rem; font-weight: 600;">145,000৳</td>
+                                        <td style="padding: 1rem;">
+                                            <select class="form-control" style="width: auto; padding: 0.5rem;" onchange="updateOrderStatus(1235, this.value)">
+                                                <option value="pending">Pending</option>
+                                                <option value="processing" selected>Processing</option>
+                                                <option value="shipped">Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="viewOrder(1235)">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Order 3 -->
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <span style="font-weight: 600; color: var(--primary-red);">#ORD-1236</span>
+                                        </td>
+                                        <td style="padding: 1rem;">
+                                            <div>
+                                                <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Mike Johnson</h4>
+                                                <p style="color: var(--gray); font-size: 0.875rem;">mike@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 5, 2025</td>
+                                        <td style="padding: 1rem; color: var(--gray);">1 item</td>
+                                        <td style="padding: 1rem; font-weight: 600;">32,000৳</td>
+                                        <td style="padding: 1rem;">
+                                            <select class="form-control" style="width: auto; padding: 0.5rem;" onchange="updateOrderStatus(1236, this.value)">
+                                                <option value="pending">Pending</option>
+                                                <option value="processing">Processing</option>
+                                                <option value="shipped" selected>Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="viewOrder(1236)">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Order 4 -->
+                                    <tr style="border-bottom: 1px solid var(--light-gray);">
+                                        <td style="padding: 1rem;">
+                                            <span style="font-weight: 600; color: var(--primary-red);">#ORD-1237</span>
+                                        </td>
+                                        <td style="padding: 1rem;">
+                                            <div>
+                                                <h4 style="font-weight: 600; margin-bottom: 0.25rem;">Sarah Wilson</h4>
+                                                <p style="color: var(--gray); font-size: 0.875rem;">sarah@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 5, 2025</td>
+                                        <td style="padding: 1rem; color: var(--gray);">3 items</td>
+                                        <td style="padding: 1rem; font-weight: 600;">89,500৳</td>
+                                        <td style="padding: 1rem;">
+                                            <select class="form-control" style="width: auto; padding: 0.5rem;" onchange="updateOrderStatus(1237, this.value)">
+                                                <option value="pending" selected>Pending</option>
+                                                <option value="processing">Processing</option>
+                                                <option value="shipped">Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="viewOrder(1237)">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- Order 5 -->
+                                    <tr>
+                                        <td style="padding: 1rem;">
+                                            <span style="font-weight: 600; color: var(--primary-red);">#ORD-1238</span>
+                                        </td>
+                                        <td style="padding: 1rem;">
+                                            <div>
+                                                <h4 style="font-weight: 600; margin-bottom: 0.25rem;">David Brown</h4>
+                                                <p style="color: var(--gray); font-size: 0.875rem;">david@example.com</p>
+                                            </div>
+                                        </td>
+                                        <td style="padding: 1rem; color: var(--gray);">Nov 5, 2025</td>
+                                        <td style="padding: 1rem; color: var(--gray);">2 items</td>
+                                        <td style="padding: 1rem; font-weight: 600;">125,000৳</td>
+                                        <td style="padding: 1rem;">
+                                            <select class="form-control" style="width: auto; padding: 0.5rem;" onchange="updateOrderStatus(1238, this.value)">
+                                                <option value="pending" selected>Pending</option>
+                                                <option value="processing">Processing</option>
+                                                <option value="shipped">Shipped</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </td>
+                                        <td style="padding: 1rem; text-align: center;">
+                                            <button class="btn btn-outline" style="padding: 0.5rem 1rem;" onclick="viewOrder(1238)">
+                                                <i class="fas fa-eye"></i> View
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2rem;">
+                        <div style="color: var(--gray);">
+                            Showing 1-5 of 1,234 orders
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-outline">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="btn btn-red">1</button>
+                            <button class="btn btn-outline">2</button>
+                            <button class="btn btn-outline">3</button>
+                            <button class="btn btn-outline">...</button>
+                            <button class="btn btn-outline">247</button>
+                            <button class="btn btn-outline">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: var(--black);">
+        <div class="container">
+            <div class="footer-bottom text-center">
+                <p style="color: white;">&copy; 2025 TECH HUB Admin Panel. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/main.js"></script>
+    <script>
+        function logout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem('admin');
+                window.location.href = '../user/login.html';
+            }
+        }
+
+        function viewOrder(orderId) {
+            alert('Viewing order #ORD-' + orderId);
+            // Implement view order details
+        }
+
+        function updateOrderStatus(orderId, status) {
+            if (confirm('Update order #ORD-' + orderId + ' to ' + status + '?')) {
+                alert('✅ Order status updated to: ' + status);
+                // Implement status update in database
+            }
+        }
+    </script>
+</body>
+</html>

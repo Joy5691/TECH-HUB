@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - TECH HUB</title>
+    
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Simple Navigation -->
+    <nav class="navbar">
+        <div class="navbar-main">
+            <div class="container">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-microchip"></i> TECH<span>HUB</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Steps -->
+    <section class="section" style="background: var(--off-white); padding: 1rem 0;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--success); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <span style="font-weight: 600; color: var(--success);">Cart</span>
+                </div>
+                <div style="width: 50px; height: 2px; background: var(--primary-red);"></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--primary-red); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600;">2</div>
+                    <span style="font-weight: 600; color: var(--primary-red);">Checkout</span>
+                </div>
+                <div style="width: 50px; height: 2px; background: var(--light-gray);"></div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 30px; height: 30px; border-radius: 50%; background: var(--light-gray); color: var(--gray); display: flex; align-items: center; justify-content: center; font-weight: 600;">3</div>
+                    <span style="color: var(--gray);">Complete</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="section">
+        <div class="container">
+            <h1 style="font-size: 2rem; margin-bottom: 2rem;">
+                <i class="fas fa-shopping-cart"></i> Checkout
+            </h1>
+
+            <div style="display: grid; grid-template-columns: 1fr 400px; gap: 2rem;">
+                <!-- Left Column - Forms -->
+                <div>
+                    <!-- Billing Information -->
+                    <div class="card" style="margin-bottom: 2rem;">
+                        <div class="card-body">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+                                <i class="fas fa-user"></i> Billing Information
+                            </h2>
+
+                            <form id="checkoutForm">
+                                <div class="grid grid-2" style="gap: 1rem;">
+                                    <div class="form-group">
+                                        <label class="form-label">First Name *</label>
+                                        <input type="text" class="form-control" id="firstName" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Last Name *</label>
+                                        <input type="text" class="form-control" id="lastName" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Email Address *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Phone Number *</label>
+                                    <input type="tel" class="form-control" id="phone" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="form-label">Street Address *</label>
+                                    <input type="text" class="form-control" id="address" required>
+                                </div>
+
+                                <div class="grid grid-3" style="gap: 1rem;">
+                                    <div class="form-group">
+                                        <label class="form-label">City *</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">State/Region *</label>
+                                        <input type="text" class="form-control" id="state" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">ZIP Code *</label>
+                                        <input type="text" class="form-control" id="zip" required>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">
+                                <i class="fas fa-credit-card"></i> Payment Method
+                            </h2>
+
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <label class="card" style="padding: 1rem; cursor: pointer; border: 2px solid var(--light-gray);">
+                                    <input type="radio" name="payment" value="card" checked> 
+                                    <i class="fas fa-credit-card"></i> Credit/Debit Card
+                                </label>
+                                <label class="card" style="padding: 1rem; cursor: pointer; border: 2px solid var(--light-gray);">
+                                    <input type="radio" name="payment" value="bkash"> 
+                                    <i class="fas fa-mobile-alt"></i> bKash
+                                </label>
+                                <label class="card" style="padding: 1rem; cursor: pointer; border: 2px solid var(--light-gray);">
+                                    <input type="radio" name="payment" value="nagad"> 
+                                    <i class="fas fa-wallet"></i> Nagad
+                                </label>
+                                <label class="card" style="padding: 1rem; cursor: pointer; border: 2px solid var(--light-gray);">
+                                    <input type="radio" name="payment" value="cod"> 
+                                    <i class="fas fa-money-bill-wave"></i> Cash on Delivery
+                                </label>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 1.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" id="terms" required>
+                                    <span>I agree to the <a href="#" style="color: var(--primary-red);">Terms & Conditions</a></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div>
+                    <div class="card" style="position: sticky; top: 100px;">
+                        <div class="card-body">
+                            <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Order Summary</h2>
+
+                            <!-- Cart Items -->
+                            <div id="checkoutItems" style="margin-bottom: 1.5rem; max-height: 300px; overflow-y: auto;">
+                                <!-- Items will be loaded here -->
+                            </div>
+
+                            <!-- Summary -->
+                            <div style="border-top: 2px solid var(--light-gray); padding-top: 1rem;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--gray);">Subtotal:</span>
+                                    <span id="checkoutSubtotal" style="font-weight: 600;">৳0</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <span style="color: var(--gray);">Shipping:</span>
+                                    <span style="color: var(--success); font-weight: 600;">FREE</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                    <span style="color: var(--gray);">Tax:</span>
+                                    <span>৳0</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; padding-top: 1rem; border-top: 2px solid var(--light-gray);">
+                                    <span style="font-size: 1.25rem; font-weight: 700;">Total:</span>
+                                    <span id="checkoutTotal" style="font-size: 1.5rem; font-weight: 700; color: var(--primary-red);">৳0</span>
+                                </div>
+                            </div>
+
+                            <button type="button" id="placeOrderBtn" class="btn btn-red" style="width: 100%; margin-top: 1.5rem;">
+                                <i class="fas fa-check-circle"></i> Place Order
+                            </button>
+
+                            <div style="text-align: center; margin-top: 1rem;">
+                                <small style="color: var(--gray);">
+                                    <i class="fas fa-lock"></i> Secure Checkout
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom text-center" style="padding: 2rem 0;">
+                <p>&copy; 2025 TECH HUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase config - REPLACE WITH YOUR CONFIG
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCdjvP3rdz60el3RPvI2AP5H2LQgnIEwMY",
+  authDomain: "tech-hub-8088a.firebaseapp.com",
+  projectId: "tech-hub-8088a",
+  storageBucket: "tech-hub-8088a.firebasestorage.app",
+  messagingSenderId: "792429684960",
+  appId: "1:792429684960:web:e9a5681688f14352c78885",
+  measurementId: "G-GEDXV1C21F"
+};
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        console.log('✅ Checkout page loaded');
+
+        // Load cart from localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('cart')) || [];
+        }
+
+        // Calculate total
+        function calculateTotal(cart) {
+            return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        }
+
+        // Load checkout data
+        function loadCheckout() {
+            const cart = getCart();
+            const itemsContainer = document.getElementById('checkoutItems');
+            const subtotalElement = document.getElementById('checkoutSubtotal');
+            const totalElement = document.getElementById('checkoutTotal');
+
+            console.log('Cart items:', cart);
+
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">Your cart is empty</p>';
+                subtotalElement.textContent = '৳0';
+                totalElement.textContent = '৳0';
+                document.getElementById('placeOrderBtn').disabled = true;
+                return;
+            }
+
+            // Display cart items
+            itemsContainer.innerHTML = cart.map(item => `
+                <div style="display: flex; gap: 1rem; padding: 1rem; background: var(--off-white); border-radius: var(--radius-sm); margin-bottom: 0.5rem;">
+                    <div style="font-size: 2rem;">${item.image || '🛒'}</div>
+                    <div style="flex: 1;">
+                        <h4 style="font-size: 0.95rem; margin-bottom: 0.25rem;">${item.name}</h4>
+                        <p style="color: var(--gray); font-size: 0.85rem;">Qty: ${item.quantity}</p>
+                    </div>
+                    <div style="font-weight: 600;">৳${(item.price * item.quantity).toLocaleString()}</div>
+                </div>
+            `).join('');
+
+            // Update totals
+            const total = calculateTotal(cart);
+            subtotalElement.textContent = '৳' + total.toLocaleString();
+            totalElement.textContent = '৳' + total.toLocaleString();
+        }
+
+        // Load user data if logged in
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log('User logged in:', user.email);
+                document.getElementById('email').value = user.email || '';
+                if (user.displayName) {
+                    const names = user.displayName.split(' ');
+                    document.getElementById('firstName').value = names[0] || '';
+                    document.getElementById('lastName').value = names.slice(1).join(' ') || '';
+                }
+            }
+        });
+
+        // Place order
+        async function placeOrder() {
+            const cart = getCart();
+            
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const form = document.getElementById('checkoutForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            const termsChecked = document.getElementById('terms').checked;
+            if (!termsChecked) {
+                alert('Please accept the Terms & Conditions');
+                return;
+            }
+
+            const user = auth.currentUser;
+            if (!user) {
+                alert('Please login to place an order');
+                window.location.href = 'login.html';
+                return;
+            }
+
+            const paymentMethod = document.querySelector('input[name="payment"]:checked').value;
+            
+            const orderData = {
+                userId: user.uid,
+                userEmail: user.email,
+                items: cart,
+                total: calculateTotal(cart),
+                shippingAddress: {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    state: document.getElementById('state').value,
+                    zip: document.getElementById('zip').value
+                },
+                paymentMethod: paymentMethod,
+                status: 'pending',
+                createdAt: serverTimestamp()
+            };
+
+            const btn = document.getElementById('placeOrderBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            btn.disabled = true;
+
+            try {
+                const docRef = await addDoc(collection(db, 'orders'), orderData);
+                console.log('Order placed:', docRef.id);
+
+                // Clear cart
+                localStorage.removeItem('cart');
+
+                // Redirect to success page
+                alert('✅ Order placed successfully!');
+                window.location.href = 'dashboard.html';
+
+            } catch (error) {
+                console.error('Order error:', error);
+                alert('Failed to place order: ' + error.message);
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
+        }
+
+        // Attach event listeners
+        document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+
+        // Load checkout on page load
+        document.addEventListener('DOMContentLoaded', loadCheckout);
+    </script>
+</body>
+</html>

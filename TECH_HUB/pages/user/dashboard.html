@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - TECH HUB</title>
+    
+    <link rel="stylesheet" href="../../css/theme.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="navbar-top">
+            <div class="container">
+                <div>
+                    <i class="fas fa-phone"></i> +880 1234-567890
+                    <i class="fas fa-envelope"></i> support@techhub.com
+                </div>
+                <div>
+                    <a href="#">Track Order</a>
+                    <a href="#">Help</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-main">
+            <div class="container">
+                <a href="../../index.html" class="logo">
+                    <i class="fas fa-microchip"></i> TECH<span>HUB</span>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                    <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon" onclick="window.location.href='dashboard.html'">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="nav-icon" onclick="window.location.href='../products/comparison.html'">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span class="badge" id="compareCount">0</span>
+                    </div>
+                    <div class="nav-icon" onclick="window.location.href='cart.html'">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartCount">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="navbar-menu">
+            <div class="container">
+                <a href="../../index.html" class="menu-item">Home</a>
+                <a href="../products/categories.html?cat=laptop" class="menu-item">Laptops</a>
+                <a href="../products/categories.html?cat=desktop" class="menu-item">Desktops</a>
+                <a href="../products/categories.html?cat=phone" class="menu-item">Phones</a>
+                <a href="../products/listing.html" class="menu-item">All Products</a>
+                <a href="../../contact.html" class="menu-item">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <section class="section">
+        <div class="container">
+            <h1 style="font-size: 2rem; margin-bottom: 2rem;">
+                <i class="fas fa-tachometer-alt"></i> My Dashboard
+            </h1>
+
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                <!-- Sidebar -->
+                <div>
+                    <div class="card" style="position: sticky; top: 100px;">
+                        <div class="card-body">
+                            <div style="text-align: center; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--light-gray);">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary-red); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem;">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3 id="userName" style="margin-bottom: 0.5rem;">Loading...</h3>
+                                <p id="userEmail" style="color: var(--gray); font-size: 0.9rem;">Loading...</p>
+                            </div>
+
+                            <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <a href="dashboard.html" class="btn btn-red" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                                </a>
+                                <a href="orders.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-shopping-bag"></i> My Orders
+                                </a>
+                                <a href="profile.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-user-edit"></i> Profile
+                                </a>
+                                <a href="wishlist.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-heart"></i> Wishlist
+                                </a>
+                                <a href="cart.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-shopping-cart"></i> Cart
+                                </a>
+                                <button onclick="handleLogout()" class="btn btn-outline" style="justify-content: flex-start; color: var(--danger);">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div>
+                    <!-- Stats Cards -->
+                    <div class="grid grid-3" style="gap: 1.5rem; margin-bottom: 2rem;">
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
+                                <div style="font-size: 3rem; color: var(--primary-red); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="totalOrders">0</h3>
+                                <p style="color: var(--gray);">Total Orders</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
+                                <div style="font-size: 3rem; color: var(--warning); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="pendingOrders">0</h3>
+                                <p style="color: var(--gray);">Pending</p>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
+                                <div style="font-size: 3rem; color: var(--success); margin-bottom: 0.5rem;">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="completedOrders">0</h3>
+                                <p style="color: var(--gray);">Completed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Orders -->
+                    <div class="card">
+                        <div class="card-body">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <h2 style="font-size: 1.5rem;">
+                                    <i class="fas fa-history"></i> Recent Orders
+                                </h2>
+                                <a href="orders.html" class="btn btn-outline">View All</a>
+                            </div>
+
+                            <div id="recentOrders">
+                                <p style="text-align: center; color: var(--gray); padding: 2rem;">
+                                    No orders yet. <a href="../products/listing.html" style="color: var(--primary-red);">Start shopping!</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div style="margin-top: 2rem;">
+                        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">
+                            <i class="fas fa-bolt"></i> Quick Actions
+                        </h2>
+                        <div class="grid grid-3" style="gap: 1rem;">
+                            <a href="../products/listing.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-shopping-bag"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Browse Products</span>
+                            </a>
+                            <a href="orders.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-truck"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Track Order</span>
+                            </a>
+                            <a href="../../contact.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-headset"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Support</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom text-center" style="padding: 2rem 0;">
+                <p>&copy; 2025 TECH HUB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/cart.js"></script>
+    <script src="../../js/main.js"></script>
+    
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, query, where, getDocs, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase config - REPLACE WITH YOUR ACTUAL CONFIG
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCdjvP3rdz60el3RPvI2AP5H2LQgnIEwMY",
+  authDomain: "tech-hub-8088a.firebaseapp.com",
+  projectId: "tech-hub-8088a",
+  storageBucket: "tech-hub-8088a.firebasestorage.app",
+  messagingSenderId: "792429684960",
+  appId: "1:792429684960:web:e9a5681688f14352c78885",
+  measurementId: "G-GEDXV1C21F"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        console.log('✅ Dashboard Firebase initialized');
+
+        // Load dashboard data
+        async function loadDashboard() {
+            console.log('Loading dashboard...');
+            
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    console.log('✅ User logged in:', user.email);
+                    
+                    // Update user info in sidebar
+                    document.getElementById('userName').textContent = user.displayName || 'User';
+                    document.getElementById('userEmail').textContent = user.email;
+                    
+                    // Load orders
+                    try {
+                        const ordersRef = collection(db, 'orders');
+                        const q = query(ordersRef, where('userId', '==', user.uid), orderBy('createdAt', 'desc'));
+                        const querySnapshot = await getDocs(q);
+                        
+                        const orders = [];
+                        querySnapshot.forEach((doc) => {
+                            orders.push({ id: doc.id, ...doc.data() });
+                        });
+                        
+                        console.log('Orders loaded:', orders.length);
+                        
+                        // Update stats
+                        document.getElementById('totalOrders').textContent = orders.length;
+                        document.getElementById('pendingOrders').textContent = orders.filter(o => o.status === 'pending').length;
+                        document.getElementById('completedOrders').textContent = orders.filter(o => o.status === 'delivered').length;
+                        
+                        // Display recent orders
+                        if (orders.length > 0) {
+                            const recentOrders = orders.slice(0, 3);
+                            document.getElementById('recentOrders').innerHTML = recentOrders.map(order => {
+                                const orderDate = order.createdAt ? new Date(order.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+                                return `
+                                    <div style="padding: 1rem; border-bottom: 1px solid var(--light-gray); display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="margin-bottom: 0.5rem;">Order #${order.id.substring(0, 8)}</h4>
+                                            <p style="color: var(--gray); font-size: 0.9rem;">${order.items?.length || 0} items • ৳${order.total?.toLocaleString() || '0'}</p>
+                                        </div>
+                                        <div>
+                                            <span class="badge" style="background: ${order.status === 'delivered' ? 'var(--success)' : 'var(--warning)'}; color: white;">
+                                                ${order.status || 'pending'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('');
+                        }
+                    } catch (error) {
+                        console.error('Error loading orders:', error);
+                    }
+                } else {
+                    console.log('❌ No user logged in, redirecting...');
+                    window.location.href = 'login.html';
+                }
+            });
+        }
+
+        // Logout function
+        async function handleLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                try {
+                    await signOut(auth);
+                    console.log('✅ Logged out successfully');
+                    window.location.href = 'login.html';
+                } catch (error) {
+                    console.error('Logout error:', error);
+                    alert('Failed to logout: ' + error.message);
+                }
+            }
+        }
+
+        // Make logout function globally accessible
+        window.handleLogout = handleLogout;
+
+        // Load dashboard on page load
+        loadDashboard();
+    </script>
+</body>
+</html>
