@@ -9,36 +9,42 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase
 import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
 // Your Firebase configuration
-// TODO: Replace with your actual Firebase project credentials
-// Get these from Firebase Console > Project Settings > General
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY_HERE",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID",
-    measurementId: "YOUR_MEASUREMENT_ID" // Optional
+  apiKey: "AIzaSyCdjvP3rdz60el3RPvI2AP5H2LQgnIEwMY",
+  authDomain: "tech-hub-8088a.firebaseapp.com",
+  projectId: "tech-hub-8088a",
+  storageBucket: "tech-hub-8088a.firebasestorage.app",
+  messagingSenderId: "792429684960",
+  appId: "1:792429684960:web:e9a5681688f14352c78885",
+  measurementId: "G-GEDXV1C21F"
 };
 
 // Initialize Firebase
 let app, auth, db, storage;
 
 try {
-    app = initializeApp(firebaseConfig);
-    auth = getAuth(app);
-    db = getFirestore(app);
-    storage = getStorage(app);
-    console.log('✅ Firebase initialized successfully');
+  app = initializeApp(firebaseConfig);
+  auth = getAuth(app);
+  db = getFirestore(app);
+  storage = getStorage(app);
+  
+  console.log('✅ Firebase initialized successfully');
+  console.log('Auth instance:', auth);
+  console.log('DB instance:', db);
 } catch (error) {
-    console.error('❌ Firebase initialization error:', error);
+  console.error('❌ Firebase initialization error:', error);
+  alert('Firebase initialization failed. Please check console for details.');
 }
 
 // Export Firebase services
-export { auth, db, storage };
+export { auth, db, storage, app };
 
-// For non-module scripts
-window.firebaseApp = app;
-window.firebaseAuth = auth;
-window.firebaseDB = db;
-window.firebaseStorage = storage;
+// For non-module scripts (fallback)
+if (typeof window !== 'undefined') {
+  window.firebaseApp = app;
+  window.firebaseAuth = auth;
+  window.firebaseDB = db;
+  window.firebaseStorage = storage;
+  console.log('✅ Firebase exposed to window object');
+}

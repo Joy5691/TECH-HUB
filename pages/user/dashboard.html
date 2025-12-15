@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - TECH HUB</title>
     
-    <!-- CSS Files -->
     <link rel="stylesheet" href="../../css/theme.css">
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/animations.css">
     <link rel="stylesheet" href="../../css/responsive.css">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -20,12 +17,12 @@
         <div class="navbar-top">
             <div class="container">
                 <div>
-                    <i class="fas fa-phone"></i> +880 1234-567890 | 
+                    <i class="fas fa-phone"></i> +880 1234-567890
                     <i class="fas fa-envelope"></i> support@techhub.com
                 </div>
                 <div>
                     <a href="#">Track Order</a>
-                    <a href="#" onclick="logout()">Logout</a>
+                    <a href="#">Help</a>
                 </div>
             </div>
         </div>
@@ -33,8 +30,7 @@
         <div class="navbar-main">
             <div class="container">
                 <a href="../../index.html" class="logo">
-                    <i class="fas fa-microchip"></i>
-                    TECH<span>HUB</span>
+                    <i class="fas fa-microchip"></i> TECH<span>HUB</span>
                 </a>
                 
                 <div class="search-bar">
@@ -43,7 +39,7 @@
                 </div>
                 
                 <div class="nav-icons">
-                    <div class="nav-icon active">
+                    <div class="nav-icon" onclick="window.location.href='dashboard.html'">
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="nav-icon" onclick="window.location.href='../products/comparison.html'">
@@ -61,6 +57,9 @@
         <div class="navbar-menu">
             <div class="container">
                 <a href="../../index.html" class="menu-item">Home</a>
+                <a href="../products/categories.html?cat=laptop" class="menu-item">Laptops</a>
+                <a href="../products/categories.html?cat=desktop" class="menu-item">Desktops</a>
+                <a href="../products/categories.html?cat=phone" class="menu-item">Phones</a>
                 <a href="../products/listing.html" class="menu-item">All Products</a>
                 <a href="../../contact.html" class="menu-item">Contact</a>
             </div>
@@ -75,39 +74,37 @@
             </h1>
 
             <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
-                <!-- Sidebar Menu -->
+                <!-- Sidebar -->
                 <div>
                     <div class="card" style="position: sticky; top: 100px;">
-                        <div class="card-body" style="padding: 0;">
-                            <div style="padding: 1.5rem; border-bottom: 1px solid var(--light-gray);">
-                                <div style="text-align: center;">
-                                    <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary-red); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 0.75rem;">
-                                        <i class="fas fa-user"></i>
-                                    </div>
-                                    <h3 style="margin-bottom: 0.25rem;">John Doe</h3>
-                                    <p style="color: var(--gray); font-size: 0.875rem;">john@example.com</p>
+                        <div class="card-body">
+                            <div style="text-align: center; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--light-gray);">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--primary-red); color: white; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem;">
+                                    <i class="fas fa-user"></i>
                                 </div>
+                                <h3 id="userName" style="margin-bottom: 0.5rem;">Loading...</h3>
+                                <p id="userEmail" style="color: var(--gray); font-size: 0.9rem;">Loading...</p>
                             </div>
-                            
-                            <nav style="padding: 1rem 0;">
-                                <a href="dashboard.html" class="menu-item active" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid var(--primary-red); background: var(--off-white);">
-                                    <i class="fas fa-home" style="margin-right: 0.5rem;"></i> Dashboard
+
+                            <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                <a href="dashboard.html" class="btn btn-red" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-tachometer-alt"></i> Dashboard
                                 </a>
-                                <a href="profile.html" class="menu-item" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
-                                    <i class="fas fa-user" style="margin-right: 0.5rem;"></i> My Profile
+                                <a href="orders.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-shopping-bag"></i> My Orders
                                 </a>
-                                <a href="orders.html" class="menu-item" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
-                                    <i class="fas fa-shopping-bag" style="margin-right: 0.5rem;"></i> My Orders
+                                <a href="profile.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-user-edit"></i> Profile
                                 </a>
-                                <a href="wishlist.html" class="menu-item" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
-                                    <i class="fas fa-heart" style="margin-right: 0.5rem;"></i> Wishlist
+                                <a href="wishlist.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-heart"></i> Wishlist
                                 </a>
-                                <a href="cart.html" class="menu-item" style="display: block; padding: 0.75rem 1.5rem; color: var(--black); text-decoration: none; border-left: 3px solid transparent;">
-                                    <i class="fas fa-shopping-cart" style="margin-right: 0.5rem;"></i> Shopping Cart
+                                <a href="cart.html" class="btn btn-outline" style="justify-content: flex-start; text-decoration: none;">
+                                    <i class="fas fa-shopping-cart"></i> Cart
                                 </a>
-                                <a href="#" onclick="logout()" class="menu-item" style="display: block; padding: 0.75rem 1.5rem; color: var(--danger); text-decoration: none; border-left: 3px solid transparent;">
-                                    <i class="fas fa-sign-out-alt" style="margin-right: 0.5rem;"></i> Logout
-                                </a>
+                                <button onclick="handleLogout()" class="btn btn-outline" style="justify-content: flex-start; color: var(--danger);">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </button>
                             </nav>
                         </div>
                     </div>
@@ -116,44 +113,34 @@
                 <!-- Main Content -->
                 <div>
                     <!-- Stats Cards -->
-                    <div class="grid grid-4" style="margin-bottom: 2rem;">
-                        <div class="card hover-lift">
-                            <div class="card-body text-center">
+                    <div class="grid grid-3" style="gap: 1.5rem; margin-bottom: 2rem;">
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
                                 <div style="font-size: 3rem; color: var(--primary-red); margin-bottom: 0.5rem;">
                                     <i class="fas fa-shopping-bag"></i>
                                 </div>
-                                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">8</h3>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="totalOrders">0</h3>
                                 <p style="color: var(--gray);">Total Orders</p>
                             </div>
                         </div>
-                        
-                        <div class="card hover-lift">
-                            <div class="card-body text-center">
+
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
                                 <div style="font-size: 3rem; color: var(--warning); margin-bottom: 0.5rem;">
                                     <i class="fas fa-clock"></i>
                                 </div>
-                                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">2</h3>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="pendingOrders">0</h3>
                                 <p style="color: var(--gray);">Pending</p>
                             </div>
                         </div>
-                        
-                        <div class="card hover-lift">
-                            <div class="card-body text-center">
+
+                        <div class="card">
+                            <div class="card-body" style="text-align: center;">
                                 <div style="font-size: 3rem; color: var(--success); margin-bottom: 0.5rem;">
                                     <i class="fas fa-check-circle"></i>
                                 </div>
-                                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">6</h3>
+                                <h3 style="font-size: 2rem; margin-bottom: 0.5rem;" id="completedOrders">0</h3>
                                 <p style="color: var(--gray);">Completed</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card hover-lift">
-                            <div class="card-body text-center">
-                                <div style="font-size: 3rem; color: var(--primary-red); margin-bottom: 0.5rem;">
-                                    <i class="fas fa-heart"></i>
-                                </div>
-                                <h3 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.25rem;">5</h3>
-                                <p style="color: var(--gray);">Wishlist</p>
                             </div>
                         </div>
                     </div>
@@ -161,74 +148,39 @@
                     <!-- Recent Orders -->
                     <div class="card">
                         <div class="card-body">
-                            <h2 style="margin-bottom: 1.5rem;">Recent Orders</h2>
-                            
-                            <div style="overflow-x: auto;">
-                                <table style="width: 100%; border-collapse: collapse;">
-                                    <thead>
-                                        <tr style="background: var(--off-white); text-align: left;">
-                                            <th style="padding: 1rem; font-weight: 600;">Order ID</th>
-                                            <th style="padding: 1rem; font-weight: 600;">Date</th>
-                                            <th style="padding: 1rem; font-weight: 600;">Status</th>
-                                            <th style="padding: 1rem; font-weight: 600;">Total</th>
-                                            <th style="padding: 1rem; font-weight: 600;">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style="border-bottom: 1px solid var(--light-gray);">
-                                            <td style="padding: 1rem;">#ORD-001</td>
-                                            <td style="padding: 1rem;">Nov 3, 2025</td>
-                                            <td style="padding: 1rem;">
-                                                <span style="background: var(--success); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">
-                                                    Delivered
-                                                </span>
-                                            </td>
-                                            <td style="padding: 1rem; font-weight: 600;">57,999৳</td>
-                                            <td style="padding: 1rem;">
-                                                <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                                                    View Details
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr style="border-bottom: 1px solid var(--light-gray);">
-                                            <td style="padding: 1rem;">#ORD-002</td>
-                                            <td style="padding: 1rem;">Nov 4, 2025</td>
-                                            <td style="padding: 1rem;">
-                                                <span style="background: var(--warning); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">
-                                                    Processing
-                                                </span>
-                                            </td>
-                                            <td style="padding: 1rem; font-weight: 600;">145,000৳</td>
-                                            <td style="padding: 1rem;">
-                                                <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                                                    View Details
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 1rem;">#ORD-003</td>
-                                            <td style="padding: 1rem;">Nov 5, 2025</td>
-                                            <td style="padding: 1rem;">
-                                                <span style="background: var(--info); color: white; padding: 0.25rem 0.75rem; border-radius: var(--radius-md); font-size: 0.875rem;">
-                                                    Shipped
-                                                </span>
-                                            </td>
-                                            <td style="padding: 1rem; font-weight: 600;">32,000৳</td>
-                                            <td style="padding: 1rem;">
-                                                <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.875rem;">
-                                                    View Details
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                                <h2 style="font-size: 1.5rem;">
+                                    <i class="fas fa-history"></i> Recent Orders
+                                </h2>
+                                <a href="orders.html" class="btn btn-outline">View All</a>
                             </div>
-                            
-                            <div style="text-align: center; margin-top: 1.5rem;">
-                                <a href="orders.html" class="btn btn-outline">
-                                    View All Orders <i class="fas fa-arrow-right"></i>
-                                </a>
+
+                            <div id="recentOrders">
+                                <p style="text-align: center; color: var(--gray); padding: 2rem;">
+                                    No orders yet. <a href="../products/listing.html" style="color: var(--primary-red);">Start shopping!</a>
+                                </p>
                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div style="margin-top: 2rem;">
+                        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">
+                            <i class="fas fa-bolt"></i> Quick Actions
+                        </h2>
+                        <div class="grid grid-3" style="gap: 1rem;">
+                            <a href="../products/listing.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-shopping-bag"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Browse Products</span>
+                            </a>
+                            <a href="orders.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-truck"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Track Order</span>
+                            </a>
+                            <a href="../../contact.html" class="btn btn-outline" style="text-decoration: none; padding: 1.5rem; text-align: center;">
+                                <i class="fas fa-headset"></i><br>
+                                <span style="margin-top: 0.5rem; display: block;">Support</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -239,57 +191,120 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-microchip"></i> TECH HUB</h3>
-                    <p>Your trusted partner for all tech needs.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="../../about.html">About Us</a></li>
-                        <li><a href="../../contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Customer Service</h3>
-                    <ul>
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="#">Returns</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Connect With Us</h3>
-                    <div style="display: flex; gap: 1rem; font-size: 1.5rem; margin-top: 1rem;">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom text-center" style="padding: 2rem 0;">
                 <p>&copy; 2025 TECH HUB. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
+    <script src="../../js/cart.js"></script>
     <script src="../../js/main.js"></script>
-    <script>
-        function logout() {
+    
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { getFirestore, collection, query, where, getDocs, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Firebase config - REPLACE WITH YOUR ACTUAL CONFIG
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCdjvP3rdz60el3RPvI2AP5H2LQgnIEwMY",
+  authDomain: "tech-hub-8088a.firebaseapp.com",
+  projectId: "tech-hub-8088a",
+  storageBucket: "tech-hub-8088a.firebasestorage.app",
+  messagingSenderId: "792429684960",
+  appId: "1:792429684960:web:e9a5681688f14352c78885",
+  measurementId: "G-GEDXV1C21F"
+};
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        console.log('✅ Dashboard Firebase initialized');
+
+        // Load dashboard data
+        async function loadDashboard() {
+            console.log('Loading dashboard...');
+            
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    console.log('✅ User logged in:', user.email);
+                    
+                    // Update user info in sidebar
+                    document.getElementById('userName').textContent = user.displayName || 'User';
+                    document.getElementById('userEmail').textContent = user.email;
+                    
+                    // Load orders
+                    try {
+                        const ordersRef = collection(db, 'orders');
+                        const q = query(ordersRef, where('userId', '==', user.uid), orderBy('createdAt', 'desc'));
+                        const querySnapshot = await getDocs(q);
+                        
+                        const orders = [];
+                        querySnapshot.forEach((doc) => {
+                            orders.push({ id: doc.id, ...doc.data() });
+                        });
+                        
+                        console.log('Orders loaded:', orders.length);
+                        
+                        // Update stats
+                        document.getElementById('totalOrders').textContent = orders.length;
+                        document.getElementById('pendingOrders').textContent = orders.filter(o => o.status === 'pending').length;
+                        document.getElementById('completedOrders').textContent = orders.filter(o => o.status === 'delivered').length;
+                        
+                        // Display recent orders
+                        if (orders.length > 0) {
+                            const recentOrders = orders.slice(0, 3);
+                            document.getElementById('recentOrders').innerHTML = recentOrders.map(order => {
+                                const orderDate = order.createdAt ? new Date(order.createdAt.seconds * 1000).toLocaleDateString() : 'N/A';
+                                return `
+                                    <div style="padding: 1rem; border-bottom: 1px solid var(--light-gray); display: flex; justify-content: space-between; align-items: center;">
+                                        <div>
+                                            <h4 style="margin-bottom: 0.5rem;">Order #${order.id.substring(0, 8)}</h4>
+                                            <p style="color: var(--gray); font-size: 0.9rem;">${order.items?.length || 0} items • ৳${order.total?.toLocaleString() || '0'}</p>
+                                        </div>
+                                        <div>
+                                            <span class="badge" style="background: ${order.status === 'delivered' ? 'var(--success)' : 'var(--warning)'}; color: white;">
+                                                ${order.status || 'pending'}
+                                            </span>
+                                        </div>
+                                    </div>
+                                `;
+                            }).join('');
+                        }
+                    } catch (error) {
+                        console.error('Error loading orders:', error);
+                    }
+                } else {
+                    console.log('❌ No user logged in, redirecting...');
+                    window.location.href = 'login.html';
+                }
+            });
+        }
+
+        // Logout function
+        async function handleLogout() {
             if (confirm('Are you sure you want to logout?')) {
-                // Clear user session
-                localStorage.removeItem('user');
-                window.location.href = 'login.html';
+                try {
+                    await signOut(auth);
+                    console.log('✅ Logged out successfully');
+                    window.location.href = 'login.html';
+                } catch (error) {
+                    console.error('Logout error:', error);
+                    alert('Failed to logout: ' + error.message);
+                }
             }
         }
 
-        function performSearch() {
-            const query = document.getElementById('searchInput').value;
-            if (query) {
-                window.location.href = `../products/listing.html?search=${encodeURIComponent(query)}`;
-            }
-        }
+        // Make logout function globally accessible
+        window.handleLogout = handleLogout;
+
+        // Load dashboard on page load
+        loadDashboard();
     </script>
 </body>
 </html>
