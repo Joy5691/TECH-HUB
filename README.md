@@ -1,7 +1,7 @@
 # 💻 TECH HUB
 
 <p align="center">
-  <img src="assets/logo.png" alt="TECH HUB Logo" width="180">
+  <img src="logo.png" alt="TECH HUB Logo" width="180">
 </p>
 
 <p align="center">
