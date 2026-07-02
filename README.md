@@ -410,6 +410,7 @@ Collaborator
 
 - **Tanha Humaira**
   - Frontend Development
+  - Initial Ideas
   - Testing
   - Documentation
   - UI Improvements
